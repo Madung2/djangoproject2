@@ -1,0 +1,13 @@
+#user/models.py
+from django.db import models
+
+#Create your models here.
+class UserModel(models.Model):
+    class Meta: #모델 자체의 정보를 담고 있음
+        db_table = "my_user"
+
+    username = models.CharField(max_length=20, null=False)
+    password = models.CharField(max_length=256, null=False)
+    bio = models.CharField(max_length=256, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
